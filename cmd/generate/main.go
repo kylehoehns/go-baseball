@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/kylehoehns/go-baseball/internal"
+	"github.com/kylehoehns/go-baseball/internal/generate"
 )
 
 const fileName = "roster"
@@ -24,14 +24,14 @@ func main() {
 		}
 	}
 
-	roster, err := internal.GenerateRoster(fileName)
+	roster, err := generate.GenerateRoster(fileName)
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error generating roster: %v\n", err)
 		os.Exit(1)
 	}
 
-	roster = internal.AddBattingOrder(roster, innings)
-	roster = internal.AddFieldingPositions(roster, innings)
-	internal.PrintRoster(roster)
+	roster = generate.AddBattingOrder(roster, innings)
+	roster = generate.AddFieldingPositions(roster, innings)
+	generate.PrintRoster(roster)
 }

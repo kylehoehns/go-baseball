@@ -1,4 +1,4 @@
-package internal
+package generate
 
 import (
 	"github.com/kylehoehns/go-baseball/internal/utils"

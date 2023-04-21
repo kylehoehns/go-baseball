@@ -1,4 +1,4 @@
-package internal
+package generate
 
 func AddBattingOrder(roster *Roster, innings int) *Roster {
 	battingOrders := make(map[int][]string, innings)
