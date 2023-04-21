@@ -1,0 +1,77 @@
+# Go Baseball
+
+I signed up to help coach my daughter's tball team and realized I needed an easy way to automatically create a batting order and assign fielding positions for each game. I also wanted each player to never play the same position in the same game and never wanted a player to play in the outfield two innings in a row.
+
+This tool is a simple generator to help coaches assign players to a batting order and fielding positions during a game of baseball.
+
+## Running
+
+Use VS Code and open this project in a [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) without needing to install any tooling locally.
+
+
+Create a file called `roster` in the root directory. Place each player's name on a separate line.
+
+```text
+Lily
+Jack
+Maya
+Luke
+Ava
+Finn
+Zoe
+Owen
+```
+
+The `main` method takes in an argument for the desired number of innings to print. By default, that value is 9.
+
+```shell
+go run cmd/main.go 5
+```
+
+This will generate you an output that looks something like this.
+
+```text
+Player Names:
+1. Finn
+2. Zoe
+3. Owen
+4. Luke
+5. Jack
+6. Maya
+7. Lily
+8. Ava
+
+Batting Order:
+Inning | 1          | 2          | 3          | 4          | 5         
+-----------------------------------------------------------------------
+       | Finn       | Maya       | Owen       | Ava        | Jack      
+       | Zoe        | Lily       | Luke       | Finn       | Maya      
+       | Owen       | Ava        | Jack       | Zoe        | Lily      
+       | Luke       | Finn       | Maya       | Owen       | Ava       
+       | Jack       | Zoe        | Lily       | Luke       | Finn      
+       | Maya       | Owen       | Ava        | Jack       | Zoe       
+       | Lily       | Luke       | Finn       | Maya       | Owen      
+       | Ava        | Jack       | Zoe        | Lily       | Luke      
+
+Fielding Positions:
+Inning | 1          | 2          | 3          | 4          | 5         
+-----------------------------------------------------------------------
+P     | Finn       | Luke       | Lily       | Zoe        | Jack      
+1B    | Zoe        | Jack       | Ava        | Owen       | Maya      
+2B    | Owen       | Maya       | Finn       | Luke       | Lily      
+3B    | Luke       | Lily       | Zoe        | Jack       | Ava       
+SS    | Jack       | Ava        | Owen       | Maya       | Finn      
+LF    | Maya       | Finn       | Luke       | Lily       | Zoe       
+CF    | Lily       | Zoe        | Jack       | Ava        | Owen      
+RF    | Ava        | Owen       | Maya       | Finn       | Luke      
+```
+
+## Assumptions
+
+* No player will be assigned the catcher position
+* You will have exactly 8 players on your team
+* This does not handle having players on the bench, or having a Rover, Left-Center or Right-Center additional fielding positions added.
+
+## Implementation
+
+This was a project where I utilized the GPT-4 LLM to generate a majority of the code based on prompts around what code I was wanting it to create.
