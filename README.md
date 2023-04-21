@@ -31,39 +31,29 @@ go run cmd/main.go 5
 This will generate you an output that looks something like this.
 
 ```text
-Player Names:
-1. Finn
-2. Zoe
-3. Owen
-4. Luke
-5. Jack
-6. Maya
-7. Lily
-8. Ava
+## Batting Order:
+| Inning | 1          | 2          | 3          | 4          | 5         
+|--------|------------|------------|------------|------------|------------|
+|        | Maya       | Finn       | Owen       | Luke       | Lily      
+|        | Jack       | Ava        | Zoe        | Maya       | Finn      
+|        | Owen       | Luke       | Lily       | Jack       | Ava       
+|        | Zoe        | Maya       | Finn       | Owen       | Luke      
+|        | Lily       | Jack       | Ava        | Zoe        | Maya      
+|        | Finn       | Owen       | Luke       | Lily       | Jack      
+|        | Ava        | Zoe        | Maya       | Finn       | Owen      
+|        | Luke       | Lily       | Jack       | Ava        | Zoe       
 
-Batting Order:
-Inning | 1          | 2          | 3          | 4          | 5         
------------------------------------------------------------------------
-       | Finn       | Maya       | Owen       | Ava        | Jack      
-       | Zoe        | Lily       | Luke       | Finn       | Maya      
-       | Owen       | Ava        | Jack       | Zoe        | Lily      
-       | Luke       | Finn       | Maya       | Owen       | Ava       
-       | Jack       | Zoe        | Lily       | Luke       | Finn      
-       | Maya       | Owen       | Ava        | Jack       | Zoe       
-       | Lily       | Luke       | Finn       | Maya       | Owen      
-       | Ava        | Jack       | Zoe        | Lily       | Luke      
-
-Fielding Positions:
-Inning | 1          | 2          | 3          | 4          | 5         
------------------------------------------------------------------------
-P     | Finn       | Luke       | Lily       | Zoe        | Jack      
-1B    | Zoe        | Jack       | Ava        | Owen       | Maya      
-2B    | Owen       | Maya       | Finn       | Luke       | Lily      
-3B    | Luke       | Lily       | Zoe        | Jack       | Ava       
-SS    | Jack       | Ava        | Owen       | Maya       | Finn      
-LF    | Maya       | Finn       | Luke       | Lily       | Zoe       
-CF    | Lily       | Zoe        | Jack       | Ava        | Owen      
-RF    | Ava        | Owen       | Maya       | Finn       | Luke      
+## Fielding Positions:
+| Inning | 1          | 2          | 3          | 4          | 5         
+|--------|------------|------------|------------|------------|------------|
+| P      | Maya       | Zoe        | Ava        | Jack       | Lily      
+| 1B     | Jack       | Lily       | Luke       | Owen       | Finn      
+| 2B     | Owen       | Finn       | Maya       | Zoe        | Ava       
+| 3B     | Zoe        | Ava        | Jack       | Lily       | Luke      
+| SS     | Lily       | Luke       | Owen       | Finn       | Maya      
+| LF     | Finn       | Maya       | Zoe        | Ava        | Jack      
+| CF     | Ava        | Jack       | Lily       | Luke       | Owen      
+| RF     | Luke       | Owen       | Finn       | Maya       | Zoe       
 ```
 
 ## Assumptions
