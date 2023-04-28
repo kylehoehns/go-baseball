@@ -35,7 +35,10 @@ func printFieldingPositionsTable(roster *Roster) {
 	separator := "|--------|" + strings.Repeat("------------|", innings)
 	fmt.Println(separator)
 
-	positions := []string{"P", "1B", "2B", "3B", "SS", "LF", "CF", "RF"}
+	positions := []string{"P", "1B", "2B", "3B", "SS", "LF", "RF"}
+	if len(roster.PlayerNames) == 8 {
+		positions = append(positions, "CF")
+	}
 	for _, position := range positions {
 		row := make([]string, innings)
 		for inning, posMap := range roster.FieldingPositions {

@@ -1,6 +1,6 @@
 # Go Baseball
 
-I signed up to help coach my daughter's tball team and realized I needed an easy way to automatically create a batting order and assign fielding positions for each game. I also wanted each player to never play the same position in the same game and never wanted a player to play in the outfield two innings in a row.
+I signed up to help coach my daughter's tball team and realized I needed an easy way to automatically create a batting order and assign fielding positions for each game. I also wanted each player to never play the same position in the same game and wanted each player to play in separate "groups" on defense. The field can be grouped into two by placing P, 1B, 2B, and RF into one group, while SS, 3B, LF, CF are another. Between batters, players rotate positions within that group.
 
 This tool is a simple generator to help coaches assign players to a batting order and fielding positions during a game of baseball.
 
@@ -59,7 +59,7 @@ This will generate you an output that looks something like this.
 ## Assumptions
 
 * No player will be assigned the catcher position
-* You will have exactly 8 players on your team
+* You will have exactly 7 or 8 players on your team
 * This does not handle having players on the bench, or having a Rover, Left-Center or Right-Center additional fielding positions added.
 
 ## Implementation

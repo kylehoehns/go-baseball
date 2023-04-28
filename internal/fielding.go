@@ -5,24 +5,42 @@ import (
 )
 
 func AddFieldingPositions(roster *Roster, innings int) *Roster {
-
-	positions := []string{"P", "1B", "2B", "3B", "SS", "LF", "CF", "RF"}
+	group1 := []string{"LF", "3B", "SS"}
+	if len(roster.PlayerNames) == 8 {
+		group1 = append(group1, "CF")
+	}
+	group2 := []string{"P", "1B", "2B", "RF"}
 	fieldingPositions := make(map[int]map[string]string, innings)
 
-	// Assign an initial position to each player
 	initialPositions := make(map[string]string)
 	for i, name := range roster.PlayerNames {
-		initialPositions[name] = positions[i%len(positions)]
+		initialPositions[name] = group1[i%len(group1)]
 	}
 
-	// Rotate positions for each inning
+	rotationAmount := 3
+	if len(roster.PlayerNames) != 8 {
+		rotationAmount = 4
+	}
+
 	for inning := 1; inning <= innings; inning++ {
 		inningPositions := make(map[string]string)
-		rotatedPositions := utils.Rotate(positions, 3*(inning-1))
 
+		// Rotate positions within each group
+		rotatedGroup1 := utils.Rotate(group1, rotationAmount*(inning-1))
+		rotatedGroup2 := utils.Rotate(group2, rotationAmount*(inning-1))
+
+		// Switch between groups each inning
+		if inning%2 == 0 {
+			rotatedGroup1, rotatedGroup2 = rotatedGroup2, rotatedGroup1
+		}
+
+		// Assign positions to players
 		for i, name := range roster.PlayerNames {
-			position := rotatedPositions[i%len(rotatedPositions)]
-			inningPositions[position] = name
+			if i < len(rotatedGroup1) {
+				inningPositions[rotatedGroup1[i]] = name
+			} else {
+				inningPositions[rotatedGroup2[i-len(rotatedGroup1)]] = name
+			}
 		}
 
 		fieldingPositions[inning] = inningPositions
