@@ -1,2 +1,2 @@
-ARG VARIANT=1.20-bullseye
+ARG VARIANT=1.22-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
